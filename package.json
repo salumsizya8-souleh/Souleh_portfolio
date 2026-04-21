@@ -1,0 +1,14 @@
+{
+  "name": "souleh-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio site with a small backend and CMS for online editing.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Salum Said Sizya, an IT student focused on cybersecurity, programming, web development, graphics design, and mobile apps.">
+    <meta name="theme-color" content="#08111f">
+    <title>Salum Said Sizya | IT Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #07101d;
+            --bg-soft: rgba(13, 23, 41, 0.72);
+            --card: rgba(11, 18, 33, 0.82);
+            --card-strong: rgba(15, 23, 39, 0.9);
+            --card-border: rgba(255, 255, 255, 0.09);
+            --text: #f4f8ff;
+            --muted: #a9bbd3;
+            --accent: #73f0ce;
+            --accent-2: #84a9ff;
+            --accent-3: #ffca7b;
+            --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+            --radius-xl: 30px;
+            --radius-lg: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(132, 169, 255, 0.24), transparent 30%),
+                radial-gradient(circle at top right, rgba(115, 240, 206, 0.18), transparent 28%),
+                radial-gradient(circle at 50% 0%, rgba(255, 202, 123, 0.08), transparent 24%),
+                linear-gradient(180deg, #07101d 0%, #0a1525 52%, #08111c 100%);
+            color: var(--text);
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+            text-rendering: optimizeLegibility;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+            pointer-events: none;
+        }
+
+        ::selection {
+            background: rgba(115, 240, 206, 0.28);
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section[id] {
+            scroll-margin-top: 110px;
+        }
+
+        .page {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 20px 0 56px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0 22px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(18px);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(5, 12, 22, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(115, 240, 206, 0.2), rgba(132, 169, 255, 0.28));
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: var(--shadow);
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav a {
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--text);
+            border-color: rgba(115, 240, 206, 0.45);
+            background: rgba(115, 240, 206, 0.1);
+            box-shadow: 0 12px 26px rgba(3, 11, 21, 0.22);
+            transform: translateY(-1px);
+        }
+
+        .admin-launcher {
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            font: inherit;
+            cursor: pointer;
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .admin-launcher:hover,
+        .admin-launcher:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(132, 169, 255, 0.35);
+            background: rgba(132, 169, 255, 0.08);
+        }
+
+        .admin-panel {
+            position: fixed;
+            inset: 88px 16px auto auto;
+            width: min(420px, calc(100vw - 32px));
+            max-height: calc(100vh - 112px);
+            overflow: auto;
+            z-index: 40;
+            padding: 18px;
+            border-radius: 22px;
+            background: rgba(8, 15, 28, 0.96);
+            border: 1px solid rgba(132, 169, 255, 0.24);
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        .admin-panel.is-open {
+            display: grid;
+            gap: 14px;
+        }
+
+        .admin-panel h2 {
+            font-size: 1.35rem;
+            margin-bottom: 4px;
+        }
+
+        .admin-panel p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .admin-panel label {
+            display: grid;
+            gap: 6px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .admin-panel input,
+        .admin-panel textarea {
+            width: 100%;
+            padding: 12px 13px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            font: inherit;
+        }
+
+        .admin-panel textarea {
+            min-height: 104px;
+            resize: vertical;
+        }
+
+        .admin-panel input:focus,
+        .admin-panel textarea:focus {
+            outline: 2px solid rgba(115, 240, 206, 0.35);
+            outline-offset: 2px;
+        }
+
+        .admin-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .admin-actions button {
+            min-height: 42px;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            font: inherit;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .admin-primary {
+            background: linear-gradient(135deg, var(--accent), #b8ffe9);
+            color: #04111b;
+        }
+
+        .admin-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-notice {
+            font-size: 0.84rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .admin-session {
+            margin: -2px 0 2px;
+            font-size: 0.88rem;
+            color: var(--accent);
+        }
+
+        .admin-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .admin-project {
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            display: grid;
+            gap: 10px;
+        }
+
+        .admin-project h3 {
+            font-size: 0.98rem;
+            font-family: "Manrope", "Segoe UI", sans-serif;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 14px 0 30px;
+        }
+
+        .hero-main,
+        .hero-side,
+        .section-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
+        }
+
+        .hero-main {
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-main::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 18% 30%, rgba(115, 240, 206, 0.18), transparent 18%),
+                radial-gradient(circle at 78% 22%, rgba(132, 169, 255, 0.18), transparent 16%),
+                linear-gradient(180deg, rgba(10, 41, 66, 0.12), transparent 44%);
+            pointer-events: none;
+        }
+
+        .hero-banner {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            border-radius: 28px;
+            padding: 24px;
+            background:
+                linear-gradient(135deg, rgba(9, 137, 170, 0.72), rgba(14, 61, 94, 0.92)),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+            overflow: hidden;
+        }
+
+        .hero-banner::before,
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .hero-banner::before {
+            inset: 16px auto auto 14px;
+            width: 170px;
+            height: 170px;
+            border-left: 8px solid rgba(160, 229, 255, 0.65);
+            border-top: 8px solid rgba(160, 229, 255, 0.65);
+            transform: rotate(45deg);
+            opacity: 0.75;
+        }
+
+        .hero-banner::after {
+            inset: 22px 22px auto auto;
+            width: 150px;
+            height: 64px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent 65%);
+            clip-path: polygon(0 0, 100% 0, 100% 14%, 24% 14%, 24% 24%, 100% 24%, 100% 40%, 42% 40%, 42% 50%, 100% 50%, 100% 70%, 0 70%);
+            opacity: 0.45;
+        }
+
+        .hero-brand-banner {
+            position: relative;
+            z-index: 1;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 12px 22px;
+            border-radius: 0 0 18px 18px;
+            background: rgba(8, 30, 53, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.1fr);
+            gap: 26px;
+            align-items: center;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 330px;
+            display: grid;
+            place-items: center;
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: 20px 0 0 10px;
+            border: 6px solid rgba(180, 232, 255, 0.36);
+            clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
+            transform: scale(1.02);
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 22px 6px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            opacity: 0.6;
+        }
+
+        .hero-photo-frame {
+            position: relative;
+            width: min(100%, 260px);
+            aspect-ratio: 0.94 / 1;
+            background: rgba(5, 17, 28, 0.25);
+            clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+            overflow: hidden;
+            transform: translateY(4px) rotate(-1deg);
+        }
+
+        .hero-photo-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), transparent 38%);
+            z-index: 1;
+        }
+
+        .hero-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            filter: saturate(1.04) contrast(1.03);
+        }
+
+        .hero-orbit {
+            position: absolute;
+            inset: 0;
+            border: 6px solid rgba(114, 239, 205, 0.12);
+            clip-path: polygon(50% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
+            transform: translate(18px, 16px);
+            pointer-events: none;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+            padding: 6px 4px 6px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(115, 240, 206, 0.1);
+            border: 1px solid rgba(115, 240, 206, 0.18);
+            color: var(--accent);
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .hero-copy h1 {
+            max-width: 11.5ch;
+        }
+
+        .hero-copy .lead {
+            max-width: 54ch;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Fraunces", "Georgia", serif;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 5vw, 4.8rem);
+            letter-spacing: -0.04em;
+            max-width: 10.5ch;
+            background: linear-gradient(135deg, #f8fbff 0%, #cfe6ff 38%, #8bead2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .lead {
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 60ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .hero-points {
+            display: grid;
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .hero-point {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px;
+            align-items: start;
+            padding: 12px 14px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-point-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(115, 240, 206, 0.15);
+            border: 1px solid rgba(115, 240, 206, 0.25);
+            color: var(--accent);
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .hero-point strong {
+            display: block;
+            margin-bottom: 2px;
+            font-size: 0.98rem;
+        }
+
+        .hero-point span {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .hero-footer {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .hero-chip {
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(8, 24, 42, 0.48);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-chip span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.84rem;
+            margin-bottom: 4px;
+        }
+
+        .hero-chip strong {
+            font-size: 1rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 0 18px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-weight: 700;
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+        }
+
+        .button.primary {
+            color: #04111b;
+            background: linear-gradient(135deg, var(--accent), #b8ffe9);
+            box-shadow: 0 20px 34px rgba(115, 240, 206, 0.18);
+        }
+
+        .button.secondary {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-side {
+            padding: 24px;
+            display: grid;
+            gap: 16px;
+            align-content: start;
+            background: linear-gradient(180deg, rgba(12, 20, 36, 0.9), rgba(12, 20, 36, 0.78));
+        }
+
+        .stats {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .stat {
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.75rem;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .stat span,
+        .section-intro {
+            color: var(--muted);
+        }
+
+        .contact-card {
+            padding: 20px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(132, 169, 255, 0.14), rgba(115, 240, 206, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card p {
+            margin: 8px 0 0;
+            color: var(--muted);
+        }
+
+        .section-card {
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .section-heading {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: end;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .about-frame {
+            position: relative;
+            overflow: hidden;
+            padding: 28px;
+            border-radius: 28px;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(36, 104, 178, 0.24), transparent 24%),
+                radial-gradient(circle at 88% 20%, rgba(115, 240, 206, 0.14), transparent 18%),
+                linear-gradient(135deg, rgba(7, 28, 49, 0.96), rgba(10, 21, 37, 0.98));
+            border: 1px solid rgba(90, 190, 255, 0.38);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+        }
+
+        .about-frame::before,
+        .about-frame::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .about-frame::before {
+            inset: 14px;
+            border: 2px solid rgba(40, 186, 226, 0.7);
+            border-radius: 20px;
+            opacity: 0.8;
+        }
+
+        .about-frame::after {
+            inset: auto 18px 16px auto;
+            width: 118px;
+            height: 10px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(40, 186, 226, 0.92), rgba(115, 240, 206, 0.16));
+            box-shadow: 0 0 0 1px rgba(40, 186, 226, 0.18);
+        }
+
+        .about-banner {
+            position: relative;
+            z-index: 1;
+            width: fit-content;
+            margin: 0 auto 18px;
+            padding: 10px 18px;
+            border-radius: 16px;
+            background: rgba(8, 30, 53, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .about-heading {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .about-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+        }
+
+        .about-heading .section-intro {
+            margin: 0 auto;
+            max-width: 58ch;
+        }
+
+        .about-grid {
+            position: relative;
+            z-index: 1;
+            grid-template-columns: 1.15fr 0.85fr;
+        }
+
+        .bio,
+        .panel {
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bio {
+            display: grid;
+            gap: 14px;
+        }
+
+        .bio p {
+            margin: 0;
+            color: var(--text);
+            font-size: 1.02rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            gap: 12px;
+        }
+
+        .about-highlight {
+            padding: 14px 15px;
+            border-radius: 16px;
+            background: rgba(6, 16, 28, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .about-highlight strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.96rem;
+        }
+
+        .bio p,
+        .panel p,
+        .section-intro,
+        li {
+            color: var(--muted);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 9px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            color: var(--text);
+        }
+
+        .project-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .project {
+            padding: 20px;
+            min-height: 190px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .project::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+            opacity: 0.9;
+        }
+
+        .project:hover {
+            transform: translateY(-3px);
+            border-color: rgba(115, 240, 206, 0.18);
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .project h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            font-weight: 800;
+        }
+
+        .project p {
+            margin: 0;
+        }
+
+        .project .label {
+            display: inline-flex;
+            margin-bottom: 14px;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .skills-list li {
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+        }
+
+        .contact-link:hover,
+        .contact-link:focus-visible {
+            transform: translateY(-3px);
+            border-color: rgba(132, 169, 255, 0.35);
+            background: rgba(132, 169, 255, 0.09);
+            box-shadow: 0 18px 35px rgba(2, 8, 16, 0.18);
+        }
+
+        .contact-link span {
+            color: var(--muted);
+        }
+
+        .contact-link strong {
+            overflow-wrap: anywhere;
+            text-align: right;
+        }
+
+        .contact-card a {
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            padding: 24px 0 8px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .reveal {
+            animation: rise 700ms ease both;
+        }
+
+        .reveal.delay-1 {
+            animation-delay: 120ms;
+        }
+
+        .reveal.delay-2 {
+            animation-delay: 220ms;
+        }
+
+        .reveal.delay-3 {
+            animation-delay: 320ms;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero,
+            .about-grid,
+            .project-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content,
+            .hero-footer {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                min-height: 280px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                position: static;
+                backdrop-filter: none;
+            }
+
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 20px, 1120px);
+                padding-top: 18px;
+            }
+
+            .hero-main,
+            .hero-side,
+            .section-card {
+                padding: 20px;
+                border-radius: 22px;
+            }
+
+            .hero-banner {
+                padding: 18px;
+            }
+
+            h1 {
+                max-width: none;
+            }
+
+            .hero-main::after {
+                width: 180px;
+                height: 180px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-footer {
+                gap: 10px;
+            }
+
+            .hero-chip {
+                padding: 12px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="topbar reveal">
+            <a class="brand" href="#home" aria-label="Go to top of portfolio">
+                <span class="brand-mark">SS</span>
+                <span>Salum Said Sizya</span>
+            </a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <button class="admin-launcher" type="button" id="adminToggle">CMS</button>
+            </nav>
+        </header>
+
+        <main id="home">
+            <section class="hero">
+                <div class="hero-main reveal delay-1">
+                    <div class="hero-banner">
+                        <div class="hero-brand-banner">Salum Said Sizya</div>
+
+                        <div class="hero-content">
+                            <div class="hero-visual" aria-hidden="true">
+                                <div class="hero-orbit"></div>
+                                <div class="hero-photo-frame">
+                                    <img
+                                        class="hero-avatar"
+                                        src="assets/profile-photo.jpg"
+                                        alt="Portrait photo of Salum Said Sizya"
+                                        width="176"
+                                        height="176"
+                                        loading="eager"
+                                        fetchpriority="high"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="hero-copy">
+                                <div class="eyebrow">IT Student at CBE</div>
+                                <h1>Computer and digital solutions built with care.</h1>
+                                <p class="lead">
+                                    I am Salum Said Sizya, an IT student focused on cybersecurity, web development,
+                                    programming, graphics design, and mobile app design. I build practical work that
+                                    is clear, modern, and useful.
+                                </p>
+
+                                <div class="hero-points" aria-label="Portfolio highlights">
+                                    <div class="hero-point">
+                                        <div class="hero-point-icon">✓</div>
+                                        <div>
+                                            <strong>Fast learning and problem solving</strong>
+                                            <span>I enjoy understanding systems quickly and improving them with focused, reliable work.</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-point">
+                                        <div class="hero-point-icon">✓</div>
+                                        <div>
+                                            <strong>Clean web and UI design</strong>
+                                            <span>My projects emphasize structure, readability, and a polished user experience.</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-point">
+                                        <div class="hero-point-icon">✓</div>
+                                        <div>
+                                            <strong>Growing technical foundation</strong>
+                                            <span>I keep developing skills in HTML, CSS, JavaScript, Python, SQL, Linux, and cybersecurity basics.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hero-actions">
+                                    <a class="button primary" href="#projects">View Projects</a>
+                                    <a class="button secondary" href="mailto:salumsizya8@gmail.com">Email Me</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hero-footer">
+                            <div class="hero-chip">
+                                <span>Focus</span>
+                                <strong>Cybersecurity and web development</strong>
+                            </div>
+                            <div class="hero-chip">
+                                <span>Tools</span>
+                                <strong>HTML, CSS, JavaScript, Python, SQL</strong>
+                            </div>
+                            <div class="hero-chip">
+                                <span>Goal</span>
+                                <strong>Professional, useful portfolio work</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="hero-side reveal delay-2" aria-label="Quick profile summary">
+                    <div class="stats">
+                        <div class="stat">
+                            <strong>7+</strong>
+                            <span>Core technical areas I study and practice</span>
+                        </div>
+                        <div class="stat">
+                            <strong>5</strong>
+                            <span>Featured project types in my portfolio</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Contact</h3>
+                        <p>Email: <a data-contact-email href="mailto:salumsizya8@gmail.com">salumsizya8@gmail.com</a></p>
+                        <p>Phone: <a data-contact-phone href="tel:+255622296685">+255 622 296 685</a></p>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="section-card reveal delay-1" id="about">
+                <div class="about-frame">
+                    <div class="about-banner">About Me</div>
+
+                    <div class="about-heading">
+                        <h2>About Me</h2>
+                        <p class="section-intro">A short summary of what I study and what I enjoy building.</p>
+                    </div>
+
+                    <div class="grid about-grid">
+                        <div class="bio">
+                            <p>
+                                I am an IT student at CBE with a strong interest in cybersecurity, programming, web
+                                development, mobile app design, and graphic design. I enjoy understanding how systems
+                                work and using that knowledge to build clear, reliable, and user-friendly solutions.
+                            </p>
+                            <p>
+                                I focus on clean structure, professional presentation, and steady improvement. My goal
+                                is to deliver work that is practical, easy to understand, and ready for real-world use.
+                            </p>
+                        </div>
+
+                        <div class="about-highlights">
+                            <div class="about-highlight">
+                                <strong>What I bring</strong>
+                                <span>Technical curiosity, disciplined problem solving, and a strong interest in building quality digital work.</span>
+                            </div>
+                            <div class="about-highlight">
+                                <strong>What I value</strong>
+                                <span>Clear design, organized code, and solutions that are professional, useful, and simple to maintain.</span>
+                            </div>
+                            <div class="about-highlight">
+                                <strong>What I am growing</strong>
+                                <span>Cybersecurity, web development, mobile interfaces, and the practical skills employers expect in a modern IT environment.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card reveal delay-1" id="skills">
+                <div class="section-heading">
+                    <div>
+                        <h2>Skills</h2>
+                        <p class="section-intro">Tools and technologies I have worked with or am actively learning.</p>
+                    </div>
+                </div>
+
+                <div class="tags" aria-label="Skill tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">C</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">Networking</span>
+                    <span class="tag">Linux (Ubuntu)</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Cybersecurity Basics</span>
+                    <span class="tag">Web Technologies</span>
+                    <span class="tag">Multimedia Systems</span>
+                    <span class="tag">Database Management</span>
+                    <span class="tag">Graphic Design</span>
+                </div>
+            </section>
+
+            <section class="section-card reveal delay-2" id="projects">
+                <div class="section-heading">
+                    <div>
+                        <h2>Projects</h2>
+                        <p class="section-intro">A few examples of the kinds of work I have been practicing.</p>
+                    </div>
+                </div>
+
+                <div class="grid project-grid">
+                    <article class="panel project">
+                        <span class="label">Web</span>
+                        <h3>Login Form Project</h3>
+                        <p>A responsive login page focused on form layout, validation, and clear visual structure.</p>
+                    </article>
+
+                    <article class="panel project">
+                        <span class="label">Practice</span>
+                        <h3>Website Design</h3>
+                        <p>Simple website layouts used to improve structure, spacing, readability, and responsive design.</p>
+                    </article>
+
+                    <article class="panel project">
+                        <span class="label">Linux</span>
+                        <h3>Linux Commands Practice</h3>
+                        <p>Hands-on practice with Ubuntu commands and basic terminal workflows for everyday system tasks.</p>
+                    </article>
+
+                    <article class="panel project">
+                        <span class="label">Data</span>
+                        <h3>SQL Database</h3>
+                        <p>Database exercises focused on tables, queries, and organizing information in a structured way.</p>
+                    </article>
+
+                    <article class="panel project">
+                        <span class="label">Mobile</span>
+                        <h3>Mobile App Design</h3>
+                        <p>Early interface concepts for mobile applications with attention to clarity and user flow.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section-card reveal delay-3" id="contact">
+                <div class="section-heading">
+                    <div>
+                        <h2>Contact</h2>
+                        <p class="section-intro">The quickest way to reach me is by email or phone.</p>
+                    </div>
+                </div>
+
+                <div class="grid contact-grid">
+                    <a class="contact-link" data-contact-email href="mailto:salumsizya8@gmail.com">
+                        <span>Email</span>
+                        <strong>salumsizya8@gmail.com</strong>
+                    </a>
+                    <a class="contact-link" data-contact-phone href="tel:+255622296685">
+                        <span>Phone</span>
+                        <strong>+255 622 296 685</strong>
+                    </a>
+                    <div class="contact-link" aria-label="Location not specified">
+                        <span>Status</span>
+                        <strong>Open to opportunities</strong>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Designed and built for Salum Said Sizya.</p>
+            <p>© 2026 Salum Said Sizya. All rights reserved.</p>
+            <p>Last updated: march 2026</p>
+        </footer>
+    </div>
+
+    <aside class="admin-panel" id="adminPanel" aria-hidden="true">
+        <div>
+            <h2>Content CMS</h2>
+            <p>Edit the main content, publish it to the backend, or export it for offline backup.</p>
+        </div>
+
+        <p class="admin-session" id="adminStatus">Not signed in.</p>
+
+        <label>
+            Hero title
+            <input id="adminHeroTitle" type="text">
+        </label>
+
+        <label>
+            Hero summary
+            <textarea id="adminHeroLead"></textarea>
+        </label>
+
+        <label>
+            About heading
+            <input id="adminAboutHeading" type="text">
+        </label>
+
+        <label>
+            About intro
+            <input id="adminAboutIntro" type="text">
+        </label>
+
+        <label>
+            About paragraph 1
+            <textarea id="adminAboutBody1"></textarea>
+        </label>
+
+        <label>
+            About paragraph 2
+            <textarea id="adminAboutBody2"></textarea>
+        </label>
+
+        <label>
+            Contact email
+            <input id="adminEmail" type="email">
+        </label>
+
+        <label>
+            Contact phone
+            <input id="adminPhone" type="text">
+        </label>
+
+        <label>
+            Skills list, one per line
+            <textarea id="adminSkills"></textarea>
+        </label>
+
+        <div class="admin-grid" id="adminProjects"></div>
+
+        <div class="admin-actions">
+            <button class="admin-primary" type="button" id="adminSave">Save</button>
+            <button class="admin-secondary" type="button" id="adminReset">Reset</button>
+            <button class="admin-secondary" type="button" id="adminExport">Export</button>
+            <button class="admin-secondary" type="button" id="adminLogout">Logout</button>
+            <button class="admin-secondary" type="button" id="adminClose">Close</button>
+        </div>
+
+        <p class="admin-notice">This CMS publishes changes to the backend so the portfolio updates online for everyone.</p>
+    </aside>
+
+    <script>
+        const defaultContent = {
+            heroTitle: "Computer and digital solutions built with care.",
+            heroLead: "I am Salum Said Sizya, an IT student focused on cybersecurity, web development, programming, graphics design, and mobile app design. I build practical work that is clear, modern, and useful.",
+            aboutHeading: "About Me",
+            aboutIntro: "A short summary of what I study and what I enjoy building.",
+            aboutBody1: "I am an IT student at CBE with a strong interest in cybersecurity, programming, web development, mobile app design, and graphic design. I enjoy understanding how systems work and using that knowledge to build clear, reliable, and user-friendly solutions.",
+            aboutBody2: "I focus on clean structure, professional presentation, and steady improvement. My goal is to deliver work that is practical, easy to understand, and ready for real-world use.",
+            email: "salumsizya8@gmail.com",
+            phone: "+255 622 296 685",
+            skills: [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "PHP",
+                "Python",
+                "C",
+                "C++",
+                "Java",
+                "Networking",
+                "Linux (Ubuntu)",
+                "SQL",
+                "Cybersecurity Basics",
+                "Web Technologies",
+                "Multimedia Systems",
+                "Database Management",
+                "Graphic Design"
+            ],
+            projects: [
+                {
+                    label: "Web",
+                    title: "Login Form Project",
+                    description: "A responsive login page focused on form layout, validation, and clear visual structure."
+                },
+                {
+                    label: "Practice",
+                    title: "Website Design",
+                    description: "Simple website layouts used to improve structure, spacing, readability, and responsive design."
+                },
+                {
+                    label: "Linux",
+                    title: "Linux Commands Practice",
+                    description: "Hands-on practice with Ubuntu commands and basic terminal workflows for everyday system tasks."
+                },
+                {
+                    label: "Data",
+                    title: "SQL Database",
+                    description: "Database exercises focused on tables, queries, and organizing information in a structured way."
+                },
+                {
+                    label: "Mobile",
+                    title: "Mobile App Design",
+                    description: "Early interface concepts for mobile applications with attention to clarity and user flow."
+                }
+            ]
+        };
+
+        const sessionKey = 'soulehPortfolioCmsToken';
+        let cmsToken = window.sessionStorage.getItem(sessionKey) || '';
+
+        function normalizeContent(input) {
+            const source = input && typeof input === 'object' ? input : {};
+            const defaultProjects = defaultContent.projects;
+
+            return {
+                heroTitle: typeof source.heroTitle === 'string' && source.heroTitle.trim() ? source.heroTitle.trim() : defaultContent.heroTitle,
+                heroLead: typeof source.heroLead === 'string' && source.heroLead.trim() ? source.heroLead.trim() : defaultContent.heroLead,
+                aboutHeading: typeof source.aboutHeading === 'string' && source.aboutHeading.trim() ? source.aboutHeading.trim() : defaultContent.aboutHeading,
+                aboutIntro: typeof source.aboutIntro === 'string' && source.aboutIntro.trim() ? source.aboutIntro.trim() : defaultContent.aboutIntro,
+                aboutBody1: typeof source.aboutBody1 === 'string' && source.aboutBody1.trim() ? source.aboutBody1.trim() : defaultContent.aboutBody1,
+                aboutBody2: typeof source.aboutBody2 === 'string' && source.aboutBody2.trim() ? source.aboutBody2.trim() : defaultContent.aboutBody2,
+                email: typeof source.email === 'string' && source.email.trim() ? source.email.trim() : defaultContent.email,
+                phone: typeof source.phone === 'string' && source.phone.trim() ? source.phone.trim() : defaultContent.phone,
+                skills: Array.isArray(source.skills) ? source.skills.map((skill) => String(skill).trim()).filter(Boolean) : defaultContent.skills.slice(),
+                projects: defaultProjects.map((fallbackProject, index) => {
+                    const project = source.projects?.[index] || {};
+                    return {
+                        label: typeof project.label === 'string' && project.label.trim() ? project.label.trim() : fallbackProject.label,
+                        title: typeof project.title === 'string' && project.title.trim() ? project.title.trim() : fallbackProject.title,
+                        description: typeof project.description === 'string' && project.description.trim() ? project.description.trim() : fallbackProject.description
+                    };
+                })
+            };
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        async function fetchJson(url, options = {}) {
+            const headers = new Headers(options.headers || {});
+
+            if (cmsToken) {
+                headers.set('Authorization', `Bearer ${cmsToken}`);
+            }
+
+            if (options.body && !headers.has('Content-Type')) {
+                headers.set('Content-Type', 'application/json');
+            }
+
+            const response = await fetch(url, {
+                ...options,
+                headers,
+                cache: 'no-store'
+            });
+
+            const payload = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+                throw new Error(payload.error || `Request failed with status ${response.status}`);
+            }
+
+            return payload;
+        }
+
+        const elements = {
+            heroTitle: document.querySelector('.hero-copy h1'),
+            heroLead: document.querySelector('.hero-copy .lead'),
+            aboutHeading: document.querySelector('.about-heading h2'),
+            aboutIntro: document.querySelector('.about-heading .section-intro'),
+            aboutBody1: document.querySelector('.bio p:first-of-type'),
+            aboutBody2: document.querySelector('.bio p:last-of-type'),
+            emails: document.querySelectorAll('[data-contact-email]'),
+            phones: document.querySelectorAll('[data-contact-phone]'),
+            skillsWrap: document.querySelector('.tags'),
+            projectsWrap: document.querySelector('.project-grid')
+        };
+
+        const panel = document.getElementById('adminPanel');
+        const toggleButton = document.getElementById('adminToggle');
+        const closeButton = document.getElementById('adminClose');
+        const saveButton = document.getElementById('adminSave');
+        const resetButton = document.getElementById('adminReset');
+        const exportButton = document.getElementById('adminExport');
+        const logoutButton = document.getElementById('adminLogout');
+        const statusText = document.getElementById('adminStatus');
+
+        const formFields = {
+            heroTitle: document.getElementById('adminHeroTitle'),
+            heroLead: document.getElementById('adminHeroLead'),
+            aboutHeading: document.getElementById('adminAboutHeading'),
+            aboutIntro: document.getElementById('adminAboutIntro'),
+            aboutBody1: document.getElementById('adminAboutBody1'),
+            aboutBody2: document.getElementById('adminAboutBody2'),
+            email: document.getElementById('adminEmail'),
+            phone: document.getElementById('adminPhone'),
+            skills: document.getElementById('adminSkills')
+        };
+
+        const projectEditorWrap = document.getElementById('adminProjects');
+
+        function updateStatus(message) {
+            statusText.textContent = message;
+        }
+
+        function buildProjectEditors(projects) {
+            projectEditorWrap.innerHTML = '';
+
+            projects.forEach((project, index) => {
+                const card = document.createElement('div');
+                card.className = 'admin-project';
+                card.innerHTML = `
+                    <h3>Project ${index + 1}</h3>
+                    <label>Label <input data-project-field="label" data-project-index="${index}" type="text"></label>
+                    <label>Title <input data-project-field="title" data-project-index="${index}" type="text"></label>
+                    <label>Description <textarea data-project-field="description" data-project-index="${index}"></textarea></label>
+                `;
+                projectEditorWrap.appendChild(card);
+            });
+        }
+
+        buildProjectEditors(defaultContent.projects);
+
+        function applyContent(content) {
+            elements.heroTitle.textContent = content.heroTitle;
+            elements.heroLead.textContent = content.heroLead;
+            elements.aboutHeading.textContent = content.aboutHeading;
+            elements.aboutIntro.textContent = content.aboutIntro;
+            elements.aboutBody1.textContent = content.aboutBody1;
+            elements.aboutBody2.textContent = content.aboutBody2;
+            elements.emails.forEach((emailLink) => {
+                emailLink.textContent = content.email;
+                emailLink.href = `mailto:${content.email}`;
+            });
+            elements.phones.forEach((phoneLink) => {
+                phoneLink.textContent = content.phone;
+                phoneLink.href = `tel:${content.phone.replace(/\s+/g, '')}`;
+            });
+            elements.skillsWrap.innerHTML = content.skills.map((skill) => `<span class="tag">${escapeHtml(skill)}</span>`).join('');
+            elements.projectsWrap.innerHTML = content.projects.map((project) => `
+                <article class="panel project">
+                    <span class="label">${escapeHtml(project.label)}</span>
+                    <h3>${escapeHtml(project.title)}</h3>
+                    <p>${escapeHtml(project.description)}</p>
+                </article>
+            `).join('');
+        }
+
+        function syncPanel(content) {
+            buildProjectEditors(content.projects);
+            formFields.heroTitle.value = content.heroTitle;
+            formFields.heroLead.value = content.heroLead;
+            formFields.aboutHeading.value = content.aboutHeading;
+            formFields.aboutIntro.value = content.aboutIntro;
+            formFields.aboutBody1.value = content.aboutBody1;
+            formFields.aboutBody2.value = content.aboutBody2;
+            formFields.email.value = content.email;
+            formFields.phone.value = content.phone;
+            formFields.skills.value = content.skills.join('\n');
+
+            projectEditorWrap.querySelectorAll('[data-project-field]').forEach((field) => {
+                const index = Number(field.dataset.projectIndex);
+                const property = field.dataset.projectField;
+                field.value = content.projects[index][property];
+            });
+        }
+
+        async function loadContent() {
+            try {
+                const response = await fetchJson('/api/content');
+                const content = normalizeContent(response);
+                applyContent(content);
+                syncPanel(content);
+                return content;
+            } catch {
+                const content = normalizeContent(defaultContent);
+                applyContent(content);
+                syncPanel(content);
+                return content;
+            }
+        }
+
+        function collectContent() {
+            const projects = Array.from(projectEditorWrap.querySelectorAll('.admin-project')).map((card) => ({
+                label: card.querySelector('[data-project-field="label"]').value.trim(),
+                title: card.querySelector('[data-project-field="title"]').value.trim(),
+                description: card.querySelector('[data-project-field="description"]').value.trim()
+            }));
+
+            return {
+                heroTitle: formFields.heroTitle.value.trim(),
+                heroLead: formFields.heroLead.value.trim(),
+                aboutHeading: formFields.aboutHeading.value.trim(),
+                aboutIntro: formFields.aboutIntro.value.trim(),
+                aboutBody1: formFields.aboutBody1.value.trim(),
+                aboutBody2: formFields.aboutBody2.value.trim(),
+                email: formFields.email.value.trim(),
+                phone: formFields.phone.value.trim(),
+                skills: formFields.skills.value.split(/\r?\n/).map((skill) => skill.trim()).filter(Boolean),
+                projects
+            };
+        }
+
+        async function loginToCms(password) {
+            const payload = await fetchJson('/api/login', {
+                method: 'POST',
+                body: JSON.stringify({ password })
+            });
+
+            cmsToken = payload.token;
+            window.sessionStorage.setItem(sessionKey, cmsToken);
+            updateStatus('Signed in. Changes will publish to the backend.');
+        }
+
+        function openAdminPanel() {
+            panel.classList.add('is-open');
+            panel.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeAdminPanel() {
+            panel.classList.remove('is-open');
+            panel.setAttribute('aria-hidden', 'true');
+        }
+
+        async function openCmsPanel() {
+            if (!cmsToken) {
+                const secret = window.prompt('Enter the CMS password to edit this portfolio.');
+
+                if (secret === null) {
+                    return;
+                }
+
+                try {
+                    await loginToCms(secret);
+                } catch {
+                    window.alert('Wrong password.');
+                    return;
+                }
+            }
+
+            await loadContent();
+            openAdminPanel();
+        }
+
+        toggleButton.addEventListener('click', openCmsPanel);
+
+        closeButton.addEventListener('click', closeAdminPanel);
+
+        saveButton.addEventListener('click', async () => {
+            const content = normalizeContent(collectContent());
+
+            if (!content.heroTitle || !content.heroLead || !content.aboutBody1 || !content.aboutBody2 || !content.email || !content.phone || !content.skills.length) {
+                window.alert('Please fill in the required fields before saving.');
+                return;
+            }
+
+            if (content.projects.some((project) => !project.label || !project.title || !project.description)) {
+                window.alert('Please complete all project fields before saving.');
+                return;
+            }
+
+            try {
+                const response = await fetchJson('/api/content', {
+                    method: 'PUT',
+                    body: JSON.stringify(content)
+                });
+                const savedContent = normalizeContent(response.content || content);
+                applyContent(savedContent);
+                syncPanel(savedContent);
+                window.alert('Changes published to the backend.');
+            } catch (error) {
+                window.alert(error.message);
+            }
+        });
+
+        resetButton.addEventListener('click', async () => {
+            if (!window.confirm('Reset all admin edits back to the default portfolio text?')) {
+                return;
+            }
+
+            try {
+                const response = await fetchJson('/api/reset', {
+                    method: 'POST'
+                });
+                const resetContent = normalizeContent(response.content || defaultContent);
+                applyContent(resetContent);
+                syncPanel(resetContent);
+                window.alert('Portfolio content reset.');
+            } catch (error) {
+                window.alert(error.message);
+            }
+        });
+
+        exportButton.addEventListener('click', () => {
+            const content = collectContent();
+            const blob = new Blob([JSON.stringify(content, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'portfolio-content.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        });
+
+        logoutButton.addEventListener('click', () => {
+            cmsToken = '';
+            window.sessionStorage.removeItem(sessionKey);
+            updateStatus('Signed out.');
+            closeAdminPanel();
+        });
+
+        loadContent().then(() => {
+            updateStatus(cmsToken ? 'Signed in. Changes will publish to the backend.' : 'Not signed in. Click CMS to log in.');
+        });
+    </script>
+
+</body>
+</html>
+ 

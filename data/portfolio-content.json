@@ -1,0 +1,55 @@
+{
+  "heroTitle": "Computer and digital solutions built with care.",
+  "heroLead": "I am Salum Said Sizya, an IT student focused on cybersecurity, web development, programming, graphics design, and mobile app design. I build practical work that is clear, modern, and useful.",
+  "aboutHeading": "About Me",
+  "aboutIntro": "A short summary of what I study and what I enjoy building.",
+  "aboutBody1": "I am an IT student at CBE with a strong interest in cybersecurity, programming, web development, mobile app design, and graphic design. I enjoy understanding how systems work and using that knowledge to build clear, reliable, and user-friendly solutions.",
+  "aboutBody2": "I focus on clean structure, professional presentation, and steady improvement. My goal is to deliver work that is practical, easy to understand, and ready for real-world use.",
+  "email": "salumsizya8@gmail.com",
+  "phone": "+255 622 296 685",
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "PHP",
+    "Python",
+    "C",
+    "C++",
+    "Java",
+    "Networking",
+    "Linux (Ubuntu)",
+    "SQL",
+    "Cybersecurity Basics",
+    "Web Technologies",
+    "Multimedia Systems",
+    "Database Management",
+    "Graphic Design"
+  ],
+  "projects": [
+    {
+      "label": "Web",
+      "title": "Login Form Project",
+      "description": "A responsive login page focused on form layout, validation, and clear visual structure."
+    },
+    {
+      "label": "Practice",
+      "title": "Website Design",
+      "description": "Simple website layouts used to improve structure, spacing, readability, and responsive design."
+    },
+    {
+      "label": "Linux",
+      "title": "Linux Commands Practice",
+      "description": "Hands-on practice with Ubuntu commands and basic terminal workflows for everyday system tasks."
+    },
+    {
+      "label": "Data",
+      "title": "SQL Database",
+      "description": "Database exercises focused on tables, queries, and organizing information in a structured way."
+    },
+    {
+      "label": "Mobile",
+      "title": "Mobile App Design",
+      "description": "Early interface concepts for mobile applications with attention to clarity and user flow."
+    }
+  ]
+}
